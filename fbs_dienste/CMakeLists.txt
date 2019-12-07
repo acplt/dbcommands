@@ -1,14 +1,9 @@
 
+# packages needed for lexer/parser
 find_package(BISON)
 find_package(FLEX)
 
-BISON_TARGET(fb_parser source/fb_parser.y ${CMAKE_CURRENT_BINARY_DIR}/fb_parser.c
-        COMPILE_FLAGS -t)
-FLEX_TARGET(fb_scanner source/fb_scanner.lex  ${CMAKE_CURRENT_BINARY_DIR}/fb_scanner.c)
-ADD_FLEX_BISON_DEPENDENCY(fb_scanner fb_parser)
-
-add_compile_definitions(NDEBUG)
-
+# configure library for ifb service libraries
 add_library(dbservices STATIC
         ${CMAKE_CURRENT_BINARY_DIR}/fb_parser.c
         ${CMAKE_CURRENT_BINARY_DIR}/fb_scanner.c
@@ -34,6 +29,7 @@ add_library(dbservices STATIC
         source/ifb_logerror.cpp
         source/ifb_memfre.cpp
         source/ifb_readblockparam.cpp
+
         source/ifb_rename.cpp
         source/ifb_selectsave.cpp
         source/ifb_setpar.cpp
@@ -45,8 +41,15 @@ add_library(dbservices STATIC
 
 target_include_directories(dbservices PUBLIC ${CMAKE_CURRENT_LIST_DIR}/include)
 
-target_link_libraries(dbservices plt ks kscln)
+# generarte fbd scanner code
+BISON_TARGET(fb_parser source/fb_parser.y ${CMAKE_CURRENT_BINARY_DIR}/fb_parser.c COMPILE_FLAGS -t)
+FLEX_TARGET(fb_scanner source/fb_scanner.lex  ${CMAKE_CURRENT_BINARY_DIR}/fb_scanner.c)
+ADD_FLEX_BISON_DEPENDENCY(fb_scanner fb_parser)
 
-#add_executable(fb_dbcommands source/dbcommands.cpp)
+target_link_libraries(dbservices kscln)
 
-#target_link_libraries(fb_dbcommands plt ks kscln dbservices)
+
+# configure fb_dbcommnads executable
+add_executable(fb_dbcommands source/dbcommands.cpp source/templ_for_exec.cpp source/test_hist_templates.cpp)
+
+target_link_libraries(fb_dbcommands plt ks kscln dbservices)
