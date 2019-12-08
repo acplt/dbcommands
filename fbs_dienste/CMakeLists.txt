@@ -4,7 +4,7 @@ find_package(BISON)
 find_package(FLEX)
 
 # configure library for ifb service libraries
-add_library(dbservices STATIC
+add_library(dbservices ${PLT_BUILD_TYPE}
         ${CMAKE_CURRENT_BINARY_DIR}/fb_parser.c
         ${CMAKE_CURRENT_BINARY_DIR}/fb_scanner.c
         source/ifb_aufraeumen.cpp
@@ -52,4 +52,4 @@ target_link_libraries(dbservices kscln)
 # configure fb_dbcommnads executable
 add_executable(fb_dbcommands source/dbcommands.cpp source/templ_for_exec.cpp source/test_hist_templates.cpp)
 
-target_link_libraries(fb_dbcommands plt ks kscln dbservices)
+target_link_libraries(fb_dbcommands dbservices)
