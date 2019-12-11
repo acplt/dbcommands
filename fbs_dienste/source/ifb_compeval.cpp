@@ -4,8 +4,8 @@
 *    #############                                                           *
 *                                                                            *
 *   L T S o f t                                                              *
-*   Agentur für Leittechnik Software GmbH                                    *
-*   Heinrich-Hertz-Straße 10                                                 *
+*   Agentur fï¿½r Leittechnik Software GmbH                                    *
+*   Heinrich-Hertz-Straï¿½e 10                                                 *
 *   50170 Kerpen                                                             *
 *   Tel      : 02273/9893-0                                                  *
 *   Fax      : 02273/9839-33                                                 *
@@ -845,6 +845,10 @@ int value_compare(Variables* pold, Variables* pnew)
             }
             switch(ov->value_type) {
                 
+                    /*
+                     * FIXME warning: case label value exceeds maximum value for type (x86 build)
+                     * valuetype is of type DataType; checked values are for KS_VAR_TYPE
+                     */
                     case KS_VT_UINT             :  if(((unsigned long)atol(ov->val)) !=
                                                ((unsigned long)atol(nv->val)) ) {
                                                 return 1;

@@ -4,8 +4,8 @@
 *    #############                                                           *
 *                                                                            *
 *   L T S o f t                                                              *
-*   Agentur f¸r Leittechnik Software GmbH                                    *
-*   Heinrich-Hertz-Straﬂe 10                                                 *
+*   Agentur f√ºr Leittechnik Software GmbH                                    *
+*   Heinrich-Hertz-Stra√üe 10                                                 *
 *   50170 Kerpen                                                             *
 *   Tel      : 02273/9893-0                                                  *
 *   Fax      : 02273/9893-33                                                 *
@@ -828,7 +828,7 @@ tcllistsplitParseBackslash(
                     count = tcllistsplitUtfToUniChar(p, &result) + 1; /* +1 for '\' */
                 } else {
                         char utfBytes[32];
-                        memcpy(utfBytes, p, (size_t) (numBytes - 1));
+                        memcpy(utfBytes, p, (size_t) (numBytes - 1)); // FIXME warning writing 127 in buffer of 32
                         utfBytes[numBytes - 1] = '\0';
                     count = tcllistsplitUtfToUniChar(utfBytes, &result) + 1;
                 }

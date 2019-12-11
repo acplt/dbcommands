@@ -226,7 +226,7 @@ KS_RESULT ifb_getValueOnly(                                              /*  |> 
                            ,bool                 ShortTime = FALSE       /* Merker, ob Time-Ausgabe "... hh:mm:ss" */
                            ,bool                 BoolAsNum = FALSE       /* Merker, ob TRUE als "1" und FALSE als "0" */
                            ,bool                 MakeList = TRUE         /* Merker, ob Array als Liste "{...}"        */
-                           ,char*                ELEMENT_TRENNER = " ; " /* Trenner der Array-Elementen               */
+                           ,const char*          ELEMENT_TRENNER = " ; " /* Trenner der Array-Elementen               */
                            ,bool                 Str = TRUE              /* Merker, ob string in Hochkommas   */
                            ,bool                 FixStr = TRUE           /* TRUE : '"'->'\"'    */
                            );

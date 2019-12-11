@@ -463,7 +463,7 @@ KS_RESULT ifb_getValueOnly(  /*  |> Funktionsrueckmeldung         */
     ,bool                 ShortTime             /* Merker, ob Time-Ausgabe "... hh:mm:ss"    */
     ,bool                 BoolAsNum             /* Merker, ob TRUE als "1" und FALSE als "0" */
     ,bool                 MakeList              /* Merker, ob Array als Liste "{...}"        */
-    ,char*                ELEMENT_TRENNER       /* Trenner der Array-Elementen               */
+    ,const char*          ELEMENT_TRENNER       /* Trenner der Array-Elementen               */
     ,bool                 Str                   /* Merker, ob string in Hochkommas   */
     ,bool                 FixStr                /* TRUE : '"'->'\"'    */
     ) {

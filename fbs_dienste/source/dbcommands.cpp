@@ -269,7 +269,7 @@ int main(int argc, char **argv) {
     PltString       logfile("");
     PltString       AV("");
     PltString       PWD("");
-    char*           servername = "localhost/fb_database";
+    const char*     servername = "localhost/fb_database";
     int             i;
     int             saveId   = 0;
     int             loadId   = 0;

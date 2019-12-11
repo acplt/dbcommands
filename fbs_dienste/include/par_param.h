@@ -4,8 +4,8 @@
 *    #############                                                           *
 *                                                                            *
 *   L T S o f t                                                              *
-*   Agentur f¸r Leittechnik Software GmbH                                    *
-*   Heinrich-Hertz-Straﬂe 10                                                 *
+*   Agentur f√ºr Leittechnik Software GmbH                                    *
+*   Heinrich-Hertz-Stra√üe 10                                                 *
 *   50170 Kerpen                                                             *
 *   Tel      : 02273/9893-0                                                  *
 *   Fax      : 02273/52526                                                   *
@@ -110,7 +110,7 @@ typedef struct Variables Variables;
 
 struct InstanceItems {
 	char*					Inst_name;
-	char*					Class_name;
+	const char* 			Class_name; // const might be inappropriate
 	Variables*				Inst_var;
 	struct InstanceItems*	next;
 };
