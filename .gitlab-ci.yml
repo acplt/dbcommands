@@ -1,5 +1,7 @@
 image: registry.git.rwth-aachen.de/acplt/build-docker-image/dbcommands-crossbuild
 
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
 
 build-linux64:
   stage: build

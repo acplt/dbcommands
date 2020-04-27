@@ -1,0 +1,3 @@
+[submodule "acplt-ks"]
+	path = acplt-ks
+	url = ../acplt-ks.git
