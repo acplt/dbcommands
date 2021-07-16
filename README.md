@@ -1,4 +1,7 @@
-dbcommands is a legacy commandline tool for loading and saving databases in ACPLT/RTE
+# fb_dbcommands
+
+A legacy commandline tool for loading and saving databases of the [ACPLT/OV runtime environment](https://github.com/acplt/rte) via the ACPLT/KS protocol
+
 
 ## Build Requirements
 * cmake
